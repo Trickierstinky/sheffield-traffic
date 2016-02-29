@@ -12,7 +12,7 @@ page.open('https://www.google.com/maps/@53.381261,-1.4422942,12z/data=!5m1!1e1',
 
 	if(success) {
 		map_wait(timestamp);
-		console.log(success, timestamp);
+		console.log(timestamp);
 	}
 });
 
