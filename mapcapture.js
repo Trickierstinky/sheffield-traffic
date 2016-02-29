@@ -13,7 +13,7 @@ function loadMap() {
 	  height: 1200
 	};
 
-	page.open('https://www.google.com/maps/@38.6337794,-76.8123652,6z/data=!5m1!1e1', function(success) {
+	page.open('https://www.google.com/maps/@53.381261,-1.4422942,12z/data=!5m1!1e1', function(success) {
 		var timestamp = (new Date()).toLocaleString();
 
 		console.log(success, timestamp);
@@ -25,26 +25,6 @@ function loadMap() {
 	function map_wait(timestamp) {
 		setTimeout(function() {
 			page.render('screengrabs/map-' + timestamp + '.png');
-		}, 5000);
-	}
-}
-
-function loadRadar() {
-	var page = require('webpage').create();
-
-	page.viewportSize = {
-	  width: 1200,
-	  height: 1200
-	};
-
-	page.open('http://project.wnyc.org/storm-radar/', function() {
-		radar_wait();
-	});
-
-	function radar_wait() {
-		setTimeout(function() {
-			var timestamp = (new Date()).toLocaleString();
-			page.render('screengrabs/radar-' + timestamp + '.png');
 		}, 5000);
 	}
 }
