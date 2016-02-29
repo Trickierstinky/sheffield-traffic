@@ -1,5 +1,17 @@
 
+var system = require('system');
+var args = system.args;
 var page = require('webpage').create();
+
+if (args.length < 3) {
+	console.log('Usage: mapcapture.js URL folder date');
+	phantom.exit();
+} else {
+	address = args[1];
+	folder = args[2];
+	timestamp = args[3];
+}
+
 
 page.viewportSize = {
   width: 1300,
@@ -7,18 +19,18 @@ page.viewportSize = {
 };
 page.clipRect = { top: 100, left: 50, bottom: 200, right: 50, width: 1200, height: 1200 };
 
-page.open('https://www.google.com/maps/@53.381261,-1.4422942,12z/data=!5m1!1e1', function(success) {
-	var timestamp = (new Date()).toLocaleString();
+page.open(address, function(success) {
+
 
 	if(success) {
 		map_wait(timestamp);
-		console.log(success, timestamp);
+		console.log(timestamp);
 	}
 });
 
 function map_wait(timestamp) {
 	setTimeout(function() {
-		page.render('screengrabs/map-' + timestamp + '.png');
+		page.render(folder+'/map-' + timestamp + '.jpg', { format: 'jpeg', quality: '92' });
 		phantom.exit();
 	}, 5000);
 }
