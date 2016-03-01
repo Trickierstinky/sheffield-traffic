@@ -24,7 +24,8 @@ if (type === 'day'){
   type_fileype = year+'_'+month;
 }
 
-var cmd = 'convert -background white -alpha remove -layers optimize-plus -delay 15x60 ' + folder + '/'+ file +' -loop 0 ' + folder+'/'+type_file+'_'+outputfile;
+var cmd = 'convert  -limit memory 1 -limit map 1 -background white -alpha remove -layers optimize-plus -delay 15x60 /usr/share/nginx/html/' + folder + '/'+ file +' -loop 0 /usr/share/nginx/html/' + folder+'/'+type_file+'_'+outputfile;
+console.log(cmd);
 exec(cmd, function(error2, stdout2, stderr2) {
  console.log(stdout2,error2, stderr2);
 });

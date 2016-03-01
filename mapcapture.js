@@ -30,7 +30,7 @@ page.open(address, function(success) {
 
 function map_wait(timestamp) {
 	setTimeout(function() {
-		page.render(folder+'/map-' + timestamp + '.jpg', { format: 'jpeg', quality: '92' });
+		page.render('/root/traffic/'+folder+'/map-' + timestamp + '.jpg', { format: 'jpeg', quality: '92' });
 		phantom.exit();
 	}, 5000);
 }
