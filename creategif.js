@@ -21,7 +21,7 @@ if (type === 'day'){
   type_file = type
 }
 
-var cmd = 'ffmpeg -framerate 4 -pattern_type glob -i \'/usr/share/nginx/html/'+ folder +'/' + file +'\' -c:v libx264 /usr/share/nginx/html/' + folder+'/' + year + '-' + month + '-' + day +  '/'+type_file+'_'+outputfile;
+var cmd = 'ffmpeg -framerate 4 -pattern_type glob -i \'/usr/share/nginx/html/'+ folder +'/' + file +'\' -c:v libx264 /usr/share/nginx/html/' + folder+'/' + year + '-' + month + '-' + day +  '/'+type_file+'_'+outputfile + ' -y';
 
 console.log(cmd);
 exec(cmd, function(error2, stdout2, stderr2) {
